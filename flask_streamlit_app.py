@@ -1,3 +1,4 @@
+pip install googletrans==4.0.0-rc1
 import streamlit as st
 from nltk.sentiment import SentimentIntensityAnalyzer
 from googletrans import Translator
