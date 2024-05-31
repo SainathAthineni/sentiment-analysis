@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import render_template, request
 from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
 
