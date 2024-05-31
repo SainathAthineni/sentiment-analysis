@@ -1,20 +1,16 @@
+import streamlit as st
 from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
 
 # Download resources for the NLTK library (only needs to be done once)
 nltk.download('vader_lexicon')
 
-app = Flask(__name__)
-
-@app.route('/')
-def index():
-    return render_template('index.html')
-
-@app.route('/analyze', methods=['POST'])
-def analyze():
-    user_input = request.form['user_input']
-    sentiment_result = analyze_sentiment(user_input)
-    return render_template('index.html', user_input=user_input, sentiment_result=sentiment_result)
+def main():
+    st.title("Sentiment Analysis App")
+    user_input = st.text_input("Enter your text:")
+    if st.button("Analyze"):
+        sentiment_result = analyze_sentiment(user_input)
+        st.write("Sentiment:", sentiment_result)
 
 def analyze_sentiment(text):
     sia = SentimentIntensityAnalyzer()
@@ -28,4 +24,4 @@ def analyze_sentiment(text):
         return 'Neutral'
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    main()
