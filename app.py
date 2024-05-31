@@ -1,4 +1,3 @@
-from flask import render_template, request
 from nltk.sentiment import SentimentIntensityAnalyzer
 import nltk
 
